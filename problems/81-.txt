@@ -1,0 +1,771 @@
+POTN 81 
+Once upon a time in a magical forest, there was a wise old tree called the Binary Tree, which kept track of all the creatures living in the forest. Each creature was assigned a unique number, and the tree was structured in such a way that every creature’s left child had a smaller number than the parent, and the right child had a larger number.
+
+One day, a curious squirrel named Nutty wanted to find out if a certain creature, numbered 42, was living in the forest. Nutty decided to start 
+Nutty will always find the creature instantly, regardless of the tree size.
+Nutty’s search will take logarithmic time since the tree is balanced.
+Nutty will need to search through every creature in the tree, so it’s linear in time complexity.
+Nutty will experience a more complex search as the tree grows.
+
+POTN 82
+The Movie Streaming Service:
+You are building a movie streaming service that allows users to browse movies by genre, and within each genre, the movies are sorted by their release date. The movie genres are represented as a binary search tree (BST), where each node represents a genre, and each genre node has two children: a left child representing a genre with movies released before the current genre’s release date, and a right child representing a genre with movies released after the cur
+Recursive Inorder Traversal
+Level-Order Traversal
+Iterative DFS
+Preorder Traversal
+
+POTD 84
+Let A be an array containing integer values. The distance of A is defined as the minimum number of elements in A that must be replaced with another integer so that the resulting array is sorted in non-decreasing order distance of [2, 5, 3, 1, 4, 2, 6]
+1
+4
+3
+2
+
+Which data structure would be the most efficient for determining book recommendations based on categories from a user's cart?
+A) Hash Map to store book IDs and their categories.
+B) Priority Queue to maintain a sorted list of books by category.
+C) Trie to store book categories and find matches.
+D) Graph where books are nodes and categories are edges, connecting books with similar categories.
+
+upto 90 pics
+
+[6:46 pm, 03/02/2025] +91 78725 76066: POTD 91 Stack A has the entries a, b, c (with a on top). Stack B is empty. An entry popped out of stack A can be printed immediately or pushed to stack B. An entry popped out of the stack B can be only be printed. In this arrangement, which of the following permutations of a, b, c are not possible?
+
+A)b a c
+B)b c a
+C)c a b
+D)a b c
+[6:46 pm, 03/02/2025] +91 78725 76066: POTD 91
+A)
+B)
+C)
+D)
+
+Explanation:
+A) b a c:Possible
+Pop 'a' from A, push it to B.
+Pop 'b' from A, print it.
+Pop 'a' from B, print it.
+Pop 'c' from A, print it.
+
+B) b c a:Possible
+Pop 'a' from A, push it to B.
+Pop 'b' from A, print it.
+Pop 'c' from A, push it to B.
+Pop 'c' from B, print it.
+Pop 'a' from B, print it.
+
+C) c a b:Not Possible
+To print 'c' first, it must be the first element popped from A. This means 'a' and 'b' would have to be pushed to B first. But then, to print 'a' before 'b', 'a' would have to be on top of 'b' in B, which is not possible with LIFO.
+
+D) a b c:Possible
+Pop 'a' from A, print it.
+Pop 'b' from A, print it.
+Pop 'c' from A, print it.
+
+
+POTD 92 
+void fun(int n) {
+    if (n == 0) return;
+    fun(n - 1);
+}
+int main() {
+    fun(1000000);
+    return 0;
+}
+What will happen when fun(1000000) is executed?
+
+a) The function will execute successfully.
+b) The program will crash due to stack overflow.
+c) The program will go into an infinite loop.
+d) The output will be 1000000 to 1.
+
+POTD 92 The five items: A, B, C, D, and E are pushed in a stack, one after other starting from A. The stack is popped four items and each element is inserted in a queue. The two elements are deleted from the queue and pushed back on the stack. Now one item is popped from the stack. The popped item is
+A) A
+B) B
+C) C
+D) D
+
+Explanation:
+When five items: A, B, C, D, and E are pushed in a stack: Order of stack becomes: A, B, C, D, and E (A at the bottom and E at the top.) stack is popped four items and each element is inserted in a queue: Order of queue: B, C, D, E (B at rear and E at the front) Order of stack after pop operations = A. Two elements deleted from the queue and pushed back on the stack: New order of stack = A, E, D(A at the bottom, D at the top) As D is on the top so when pop operation occurs D will be popped out. So, correct option is (D).
+
+POTD 93 
+Suppose a circular queue of capacity (n – 1) elements is implemented with an array of n elements. Assume that the insertion and deletion operation are carried out using REAR and FRONT as array index variables, respectively. Initially, REAR = FRONT = 0. The conditions to detect queue full and queue empty are
+
+
+A) Full: (REAR+1) mod n == FRONT, empty: REAR == FRONT
+
+B) Full: (REAR+1) mod n == FRONT, empty: (FRONT+1) mod n == REAR
+
+C) Full: REAR == FRONT, empty: (REAR+1) mod n == FRONT
+
+D) Full: (FRONT+1) mod n == REAR, empty: REAR == FRONT
+
+A Circular Queue is a linear data structure that follows the First In First Out (FIFO) principle, but unlike a standard queue, it connects the last position back to the first, forming a circular structure. This design efficiently utilizes memory by reusing vacant slots created after dequeue operations. In a circular queue, two pointers are maintained: front, which points to the first element, and rear, which points to the last element. When the rear pointer reaches the end of the queue, it wraps around to the beginning if there is available space, ensuring efficient use of storage.
+
+The main operations in a circular queue are enqueue (insertion), dequeue (deletion), peek (accessing the front element), and checking if the queue is full or empty. Enqueue adds an element to the rear and updates the pointer to the next circular position, while dequeue removes an element from the front and updates the front pointer accordingly. A circular queue is considered full when the next position of the rear points to the front, and it is empty when the front is at its initial position (-1). One of the key advantages of a circular queue is that it eliminates the need for element shifting and provides efficient space utilization compared to a linear queue.
+
+Despite its benefits, a circular queue has limitations, such as requiring a predetermined fixed size, which may not always be optimal. Additionally, the condition for detecting a full queue is more complex than in a simple linear queue. Circular queues are widely used in various applications, including task scheduling, memory buffers, and managing data in real-time systems where efficient memory management is essential.
+
+int fun()  
+{  
+   if(isEmpty())  
+   {  
+      return -10;   
+   }  
+  else  
+  {  
+     int n;  
+     n= q[front];  
+     front++;  
+     return n;   
+  }  
+    
+}   
+Which operation does the above code perform?
+
+a) Enqueue
+b) Dequeue
+c) Return the front element
+d) Both B and C
+
+Explanation: The answer is d because two operations are performed in the above code. The first one is returning the value of the front with the help of the statement n=q[front], and the second operation is dequeue (deleting an element) by using the statement front++.
+
+
+POTD 95
+Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0). The distance between two points on the X-Y plane is the Euclidean distance.   
+Example:
+points = [[1,3],[-2,2]], k = 1
+Output: [[-2,2]]
+
+a) Calculate distances, sort, and take the first k.
+b) Use a max-heap (priority queue) of size k.
+c) Use quickselect (a variation of quicksort).
+d) Calculate all distances and use a min-heap.
+
+Correct Answer: A) Use a max-heap (priority queue) of size k.  or B) Use quickselect.
+Explanation: a max-heap keeps track of the k largest distances seen so far.  elements with smaller distances replace the largest in the heap. quickselect partitions the array around a pivot, and recursively searches only one side. Both achieve O(n log k) time complexity, better than a full sort (O(n log n))
+
+POTD 96
+The postorder traversal of a binary tree is 8, 9, 6, 7, 4, 5, 2, 3, 1. The inorder traversal of the same tree is 8, 6, 9, 4, 7, 2, 5, 1, 3. The height of a tree is the length of the longest path from the root to any leaf. The height of the binary tree above is ____ .
+
+a)2
+b)3
+c)4
+d)5
+
+
+
+POTD 97
+When searching for the key value 60 in a binary search tree, nodes containing the key values 10, 20, 40, 50, 70 80, 90 are traversed, not necessarily in the order given. How many different orders are possible in which these key values can occur on the search path from the root to the node containing the value 60?
+a)35
+b)64
+c)128
+d)5040
+Explanation:
+there are two set of values, smaller than 60 and greater than 60. Smaller values 10, 20, 40 and 50 are visited, means they are visited in order. Similarly, 90, 80 and 70 are visited in order.
+= 7!/(4!3!)
+= 35
+
+POTD 98
+Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the numbers in the original intervals. 
+Example:
+intervals = [[1,3],[2,6],[8,10],[15,18]]
+Output: [[1,6],[8,10],[15,18]]
+
+
+a) Sort intervals by start time, then iterate and merge overlaps.
+b) Use a priority queue to manage intervals.
+c) Use a graph to represent interval relationships.
+d) Brute force: Check all pairs for overlaps.
+
+Approach (a): Sort and Merge (ANS)
+                                                                                                                                                                         Steps:                                                                                                                                                                              1)  Sort the intervals based on their starting times.
+2) Iterate through the sorted intervals:
+~If an interval overlaps with the previous one (i.e., their ranges intersect), merge them by updating the end time.
+~If it does not overlap, add it to the final result.                             
+3) Return the merged intervals.
+                                                                                                                                                                              Time Complexity:
+~Sorting takes O(N log N).
+~Iterating through intervals takes O(N).
+~Overall: O(N log N).
+                                                                                                                                                                          Why is this efficient?
+Sorting ensures that overlapping intervals appear next to each other, making merging straightforward.
+
+POTD 99
+Which of the following is TRUE?
+
+a)The cost of searching an AVL tree is θ (log n) but that of a binary search tree is O(n)
+b)The cost of searching an AVL tree is θ (log n) but that of a complete binary tree is θ (n log n)
+c)The cost of searching a binary search tree is O (log n ) but that of an AVL tree is θ(n)
+d)The cost of searching an AVL tree is θ (n log n) but that of a binary search tree is O(n)
+
+Explanation
+AVL tree is a balanced tree.
+AVL tree's time complexity of searching = θ(log(n)) 
+But a binary search tree may be a skewed tree, so in the worst case BST searching time = θ(n)
+
+100 no Question
+
+
+POTD 101
+Predict the output of following program 
+#include <stdio.h>
+int f(int n)
+{
+    if(n <= 1)
+        return 1;
+    if(n%2 == 0)
+        return f(n/2);
+    return f(n/2) + f(n/2+1);
+}
+
+
+int main()
+{
+    printf("%d", f(11));
+    return 0;
+}
+a)Stack Overflow
+b)3
+c)4
+d)5
+
+Since 11 is odd, 
+f(11) = f(5) + f(6)
+
+Then , as 5 is odd ,
+f(5) = f(2) + f(3)
+For 6 is even,
+f(6) = f(3) 
+
+As 2 is even,
+f(2) = 1 = f(1) 
+
+3 is odd so,
+f(3) = f(2) + f(1) = 1 + 1 = 2
+
+So
+f(11) = f(5) + f(6) = 3 + 2 = 5
+
+The recursive function works similarly to a recursive sequence series. The base case returns 1 for inputs less than or equal to 1. For even numbers, it recursively halves the input. For odd numbers, it breaks the problem into two recursive calls based on the half and half-plus-one pattern.
+
+POTD 102
+Suppose we are sorting an array of eight integers using heapsort, and we have just finished some heapify (either maxheapify or minheapify) operations. The array now looks like this: 16 14 15 10 12 27 28 How many heapify operations have been performed on root of heap?
+
+a)1
+b)2
+c)3 or 4
+d)5 or 6
+
+Explanation
+in Heapsort, we first build a heap, then we do following operations till the heap size becomes 1. a) Swap the root with last element b) Call heapify for root c) reduce the heap size by 1. In this question, it is given that heapify has been called few times and we see that last two elements in given array are the 2 maximum elements in array. So situation is clear, it is maxheapify which has been called 2 times.
+hence option(B) is the correct answer.
+
+
+POTD 103
+Output of following program? 
+#include<stdio.h>
+void print(int n)
+{
+    if (n > 4000)
+        return;
+    printf("%d ", n);
+    print(2*n);
+    printf("%d ", n);
+}
+
+int main()
+{
+    print(1000);
+    getchar();
+    return 0;
+}
+a)1000 2000 4000
+b)1000 2000 4000 4000 2000 1000
+c)1000 2000 4000 2000 1000
+d)1000 2000 2000 1000
+
+    Explanation
+    first time n=1000 Then 1000 is printed by first printf function then call print(2*1000) then again print 2000 by printf function then call print(2*2000) and it prints 4000 next time print(4000*2) is called. Here 8000 is greater than 4000 condition becomes true and it return at function(2*4000). Here n=4000 then 4000 will again print through second printf. Similarly print(2*2000) after that n=2000 then 2000 will print and come back at print(2*1000) here n=1000, so print 1000 through second print. 
+    Hence Option (B) is correct.
+
+POTD 104
+A three dimensional array in ‘C++’ is declared as int A[x][y][z]. Consider that array elements are stored in row major order and indexing begins from 0. Here, the address of an item at the location A[p][q][r] can be computed as follows (where w is the word length of an integer):
+
+a)&A[0][0][0] + w(y * z * q + z * p + r)
+b)&A[0][0][0] + w(y * z * p + z*q + r)
+c)&A[0][0][0] + w(x * y * p + z * q+ r)
+d)&A[0][0][0] + w(x * y * q + z * p + r)
+
+Explanation
+According to above question we have to find the address of A[p][q][r] To reach pth row we must have to cross 0 to p-1 row i.e. p rows and each rows contains y*z elements Hence , = y*z*p Now to reach qth element in pth row we have to cross q rows and each row contains z(total columns) elements =z*q to reach rth elements we have to cross r elements in (p+1)th row Total elements to cross =(y*z*p+z*q+r) Now each element occupies m amount of space in memory Therefore total space occupied by these elements = m(y*z*p+z*q+r) Hence , address of A[p][q][r]=base address+ Space Occupied by the Elements Before it. =&A[0][0][0]+m(y*z*p+z*q+r) sooo option (B) is correct.
+
+POTD 105
+Which of the following is an advantage of adjacency list representation over adjacency matrix representation of a graph?\
+a)In adjacency list representation, space is saved for sparse graphs.
+b)DFS and BSF can be done in O(V + E) time for adjacency list representation. These operations take O(V^2) time in adjacency matrix representation. Here is V and E are number of vertices and edges respectively.
+c)Adding a vertex in adjacency list representation is easier than adjacency matrix representation.
+d)All of the above
+
+POTD 106
+What does the following function do? 
+int fun(unsigned int n)
+{
+    if (n == 0 || n == 1)
+        return n;
+
+    if (n%3 != 0)
+        return 0;
+
+    return fun(n/3);
+}
+a) It returns 1 when n is a multiple of 3, otherwise returns 0
+b) It returns 1 when n is a power of 3, otherwise returns 0
+c) It returns 0 when n is a multiple of 3, otherwise returns 1
+d) It returns 0 when n is a power of 3, otherwise returns 1
+
+Explanation:
+lets solve with example, n = 27 which power of 3. First time if condition is false as n is neither equal to 0 nor equal to 1 then 27%3 = 0. here, again if condition false because it is equal to 0. Then fun(27/3) will call. Second time if condition is false as n is neither equal to 0 nor equal to 1 then 9%3 = 0. Here again if condition false because it is equal to 0. Then fun (9/3) will call and third time if condition is false as n is neither equal to 0 nor equal to 1 then 3%3 = 0. Here again if condition false because it is equal to 0. Then fun(3/3) will call here n==1 if condition gets true and it return n i.e. 1. 
+hence option (B) is correct.
+
+POTD 107
+If one uses straight two-way merge sort algorithm to sort the following elements in ascending order: 20, 47, 15, 8, 9, 4, 40, 30, 12, 17 then the order of these elements after second pass of the algorithm is:
+a) 8, 9, 15, 20, 47, 4, 12, 17, 30, 40
+b) 8, 15, 20, 47, 4, 9, 30, 40, 12, 17
+c) 15, 20, 47, 4, 8, 9, 12, 30, 40, 17
+d) 4, 8, 9, 15, 20, 47, 12, 17, 30, 40
+
+
+POTD 108
+Given two sorted list of size m and n respectively. The number of comparisons needed the worst case by the merge sort algorithm will be
+a) m x n
+b) maximum of m and n
+c) minimum of m and n
+d) m + n - 1
+
+Explanation
+To merge two lists of size m and n, we need to do m+n-1 comparisons in worst case. Since we need to merge 2 at a time, the optimal strategy would be to take smallest size lists first. The reason for picking smallest two items is to carry minimum items for repetition in merging. So, option (D) is correct.
+
+POTD 109
+Consider the following C function. 
+int fun(int n) {
+    int x = 1, k;
+    if (n == 1) 
+        return x;
+    for (k = 1; k < n; ++k)
+        x = x + fun(k) * fun(n - k);
+    return x;
+}
+The return value of fun(5) is ____.
+
+a) 0
+b) 26
+c) 51
+d) 71
+
+fun(1) = 1
+---------------
+
+fun(2):
+
+fun(2) = 1 + fun(1)*fun(1)
+       = 1 + 1*1
+       = 2
+-----------------------
+fun(3):
+
+fun(3) = 1 + fun(1)*fun(2) + fun(2)*fun(1)
+       = 1 + 1*2 + 2*1
+       = 1 + 2 + 2
+       = 5
+---------------
+fun(4):
+
+fun(4) = 1 + fun(1)*fun(3) + fun(2)*fun(2) + fun(3)*fun(1)
+       = 1 + 1*5 + 2*2 + 5*1
+       = 1 + 5 + 4 + 5
+       = 15
+-----------------
+ fun(5):
+
+fun(5) = 1 + fun(1)*fun(4) + fun(2)*fun(3) + fun(3)*fun(2) + fun(4)*fun(1)
+       = 1 + 1*15 + 2*5 + 5*2 + 15*1
+       = 1 + 15 + 10 + 10 + 15
+       = 51
+
+
+POTD 110
+Predict the output:
+#include <stdio.h>
+void crazy(int n, int a, int b)
+{
+    if (n <= 0)
+        return;
+    crazy(n - 1, a, b + n);
+    printf("%d %d %d \n",n,a,b);
+    crazy(n-1, b, a+n);
+}
+
+int main()
+{
+    crazy(3, 4, 5);
+    return 0;
+}
+A)
+1 4 10
+2 4 8
+1 8 6
+3 4 5
+1 5 9
+2 5 7
+1 7 7
+
+B)
+3 4 5
+1 4 10
+2 4 8
+1 8 6
+1 5 9
+2 5 7
+1 7 7
+
+C)
+1 4 10
+2 4 8
+1 8 6
+3 4 5
+
+D)
+3 4 5
+1 5 9
+2 5 7
+1 7 7
+
+Explanation:
+Call(3,4,5)
+crazy(3, 4, 5) calls crazy(2, 4, 5 + 3) 
+crazy(2, 4, 8) calls crazy(1, 4, 8 + 2) 
+crazy(1, 4, 10) calls crazy(0, 4, 10 + 1) 
+crazy(0, 4, 11) returns immediately as the base case is reached. and prints 1, 4, 10.
+crazy(0, 11,4). return as the base case is reached.
+Now, we wrap up the recursive calls:
+call crazy(2,4,8) prints 2,4,8 and again call for crazy(1,8, 6). which will print 1,8,6.
+call crazy(3,4,5) prints 3,4,5 and again call for crazy(2,5, 7). which will again call for (1,5,9) prints 1 5 9.
+call crazy (2,5,7) prints 2,5,7 and again call for crazy(1,7,7), which will print 1,7,7.
+hence (A) is the correct Option.
+
+
+POTD 111
+Which of the following algorithms is NOT a divide & conquer algorithm by nature?
+
+A)Euclidean algorithm to compute the greatest common divisor
+B)Heap Sort
+C)Cooley-Tukey fast Fourier transform
+D)Quick Sort
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int min(vector<int>& p, int d) {
+    sort(p.begin(),p.end());  
+    int cnt = 0;  
+    int i = 0, n = p.size();
+    while (i < n) {
+        cnt++; 
+        int strt = i;
+        while (i<n && p[i]-p[strt]<=d) {
+        i++;
+        }
+    }
+    return cnt;
+}
+int main() {
+    int n, d;
+    cin>>n>> d;
+    vector<int> p(n);
+     for (int i = 0; i < n; i++) {
+        cin >> p[i];
+    }
+    cout << min(p, d) << endl;
+    return 0;
+}
+
+POTD 112
+Consider a binary tree with n nodes, where each node can have at most two children. The height of the tree is defined as the maximum number of edges between the root node and any leaf node. Which of the following statements is true regarding the height h of this binary tree?
+
+a) The height of the tree is always equal to n-1.
+b) The height of the tree can be greater than or equal to n-1.
+c) The height of the tree is always equal to log₂(n).
+d) The height of the tree can be greater than or equal to log₂(n).
+
+POTD 113
+What will be the output of the following C program? 
+#include <stdio.h>
+static int d = 1;
+void count(int n) {
+    printf("%d ", n);
+    printf("%d ", d);
+    d++;
+    if(n > 1) count(n - 1);
+    printf("%d ", d);
+}
+int main() {
+    count(3);
+    return 0;
+}
+a) 3 1 2 2 1 3 4 4 4
+b) 3 1 2 1 1 1 2 2 2
+c) 3 1 2 2 1 3 4
+d) 3 1 2 1 1 1 2
+
+Explanation:
+count(3) will print value of n and d. So 3 1 will be printed 
+and d will become 2. 
+then count(2) will be called. It will print value of n and d. 
+So 2 2 will be printed and d will become 3. 
+then count(1) will be called. It will print value of n and d.
+So 1 3 will be printed and d will become 4. 
+now count(1) will print value of d which is 4. count(1) will 
+finish its execution. 
+then count(2) will print value of d which is 4. 
+similarly, count(3) will print value of d which is 4. 
+hence (A) is the correct answer.
+
+POTD 114
+What is the name of below recursive program?
+#include <stdio.h>
+void fun(int n, char from_rod, char to_rod, char aux_rod) {
+	if (n == 0) {
+		return;
+	}
+	fun(n - 1, from_rod, aux_rod, to_rod);
+	printf("Move disk %d from rod %c to rod %c\n", n, from_rod, to_rod);
+	fun(n - 1, aux_rod, to_rod, from_rod);
+}
+
+a) N Queen Problem
+b) Tower of Hanoi
+c) M coloring Problem
+d) None
+
+This code is of Tower of Hanoi problem. 
+
+It moves all the disks from one rod (called from_rod) to another (called to_rod) using a third rod (aux_rod) as an auxiliary or helper rod.
+
+ Imagine you have 3 disks on rod A, and you need to move them to rod C using rod B as a helper. The function works by first moving the smaller disks (disk 1 and 2) from rod A, as the no. Of disks > 1, to rod B, leaving the largest disk (disk 3) on rod A. Then, it moves the largest disk to rod C. After that, it moves the smaller disks from rod B to rod C, using rod A as the helper. So, we can see that in each step, if the input was n, then, the function calls itself recursively with (n - 1) as input. I hope it's clear now, if you have any question do let me know...
+
+Simply, remember, the first input is the no. Of disks, the second is the rod, from which we have to move the disks, the next one is the helper rod, and the last one in the function call arguments is the rod where we have to finally move all the rods.
+
+With 5 disks, the process begins by recursively moving 4 disks from rod A to rod B using rod C as auxiliary. Then, disk 5 is moved from A to C. Next, the 4 disks are moved from rod B to rod C using A as auxiliary. This process continues with smaller subsets of disks being moved between rods until all disks are transferred from rod A to rod C, with each move following the pattern of shifting smaller disks first to the auxiliary rod before moving the larger disks to the target rod.
+
+
+POTD-115
+
+Consider a dynamic array that doubles in size whenever it runs out of space. Initially, the array has a capacity of 1. A sequence of n insertions is performed at the end of the array.
+
+Which of the following statements is true about the amortized time complexity of these insertions?
+
+a) The amortized time complexity of each insertion is O(1), even though some insertions take O(n) time due to resizing.
+b) The amortized time complexity of each insertion is O(logn), because the array size grows exponentially.
+c) The amortized time complexity of each insertion is O(n), because resizing the array is an expensive operation.
+d) The amortized time complexity of each insertion is O(nlogn), because resizing occurs multiple times during the sequence of insertions.
+
+POTD-115 Solution:
+
+Answer:
+A) The amortized time complexity of each insertion is O(1), even though some insertions take O(n) time due to resizing.
+
+Explanation:
+1. Initially, a dynamic array has size = 1.
+
+2. When the array becomes full, it doubles its size. This involves allocating a new array, copying all existing elements.
+
+3. The cost of resizing is O(n), but it happens infrequently (only when the array size becomes powers of 2: 1, 2, 4 , 8).
+
+4. The total cost of resizing:   1+2+4+8+⋯+n/2+n = 2n - 1 = O(n).
+
+5. Dividing the total cost by n insertions gives an amortized cost of O(n)/n = O(1) per insertion.
+
+POTD-116:
+
+A competitive programming problem has a constraint N<=10^6. Which of the following time complexities will give a TLE (Time Limit Exceeded?
+O(1)
+O(N)
+O(logN)
+None of the above
+
+Explanation: 
+> COMPETITIVE PROGRAMMING allows upto 10⁸ operations every sec. So you need to calculate taking N = 10⁶  (given in the question) and check which exceeds the range of 10⁸.
+
+1. O(1): Always takes 1 operation -> Fits within 10⁸
+
+2. O(log N) : log₂(10⁶) ≈ 20 operations ->  Fits within 10⁸
+
+3. O(N): 10⁶ operations -> Fits within 10⁸
+
+
+POTD-117:
+Consider a circular doubly linked list where each node contains three fields:
+
+1. data (stores an integer)
+2. next (points to the next node)
+3. prev (points to the previous node)
+
+You are given the following pseudocode function:
+
+FUNCTION modify(Node head)  
+    IF head IS NULL  
+        RETURN NULL  
+
+    SET current = head  
+    DO  
+        SWAP current.next and current.prev  
+        current = current.prev
+    WHILE current ≠ head  
+
+    RETURN head
+END FUNCTION
+
+What does this function do to the circular doubly linked list?
+
+A) Reverses the circular doubly linked list.
+B) Converts it into a singly linked list.
+C) Swaps every pair of adjacent nodes.
+D) Deletes every alternate node.
+
+POTD-117 Solution:
+
+ Answer : A) Reverses the circular doubly linked list.
+
+Explanation: The function iterates through the circular doubly linked list.
+
+For each node, it swaps next and prev, thus it  reverses the traversal direction.
+
+POTD-118:
+
+Which data structure would be the most efficient choice for implementing an undo operation in a text editor?
+Queue
+Stack
+Linked List
+Hash Table
+
+POTD-118 SOLUTION:
+
+Answer: B) Stack
+
+Explanation: A stack follows the Last In, First Out (LIFO) principle, making it ideal for undo operations. Each action is pushed onto the stack, and when the user wants to undo, the most recent action is popped off.
+
+
+POTD-119:
+
+You are given n activities with their start and end times. You need to select the maximum number of activities that can be performed by a single person, assuming that a person can work on only one activity at a time. Which algorithmic approach would be the most suitable to solve this problem optimally?
+
+A) Dynamic Programming
+B) Greedy Algorithm
+C) Backtracking
+D) Divide and Conquer
+
+OTD-119 SOLUTION:
+
+Answer: B) Greedy Algorithm 
+
+Explanation: 
+It's the famous activity selection problem. Whenever there is any optimization(maximization or minimization) problem we first try to solve it greedily.
+
+In this problem, after sorting activities by their end times, we iteratively select the activity that finishes the earliest and does not overlap with previously selected activities. This greedy strategy ensures that we accommodate the maximum number of activities.
+
+If greedy can't provide an optimal solution we try out all possibilities by applying DP
+
+POTD-120:
+An anagram of a string is another string that contains the same characters in the same frequency but possibly in a different order.
+
+You are given two strings, s and t. Provide a program to determine whether t is an anagram of s.
+
+#include <iostream>
+#include <vector>
+#include <cctype>
+using namespace std;
+
+class Solution {
+public:
+    bool agm(string s1, string s2) {
+        if (s1.length() != s2.length())
+         return false;
+
+        vector<int> freq(26, 0);
+
+        for (int i = 0; i < s1.length(); i++) {
+            freq[tolower(s1[i]) - 'a']++; 
+            freq[tolower(s2[i]) - 'a']--; 
+        }
+        for (int count : freq) {
+            if (count != 0) return false;
+        }
+        return true;
+    }
+};
+int main() {
+    Solution obj;
+    string s1, s2;
+    
+    cout << "Enter 1st string: ";
+    cin >> s1;
+    cout << "Enter 2nd string: ";
+    cin >> s2;
+    
+    cout << (obj.agm(s1,s2) ? "Anagram" : "Not Anagram") << endl;
+    return 0;
+}
+
+Which one is a linear data structure?
+Graph
+Tree
+Linked list
+None
+
+POTD-121 SOLUTION:
+
+Answer : Linked List
+Explanation :
+A linked list is a linear data structure where elements (nodes) are stored in a sequential manner. Each node contains two parts:
+
+1. Data – The actual value stored in the node.
+
+2. Pointer (Next) – A reference to the next node in the sequence.
+
+Unlike arrays, linked lists do not require contiguous memory allocation, making them efficient for dynamic memory allocation.
+
+POTD-122:
+The following numbers are inserted into an empty binary search tree in the given order: 10, 1, 3, 5, 15, 12, 16. What is the height of the binary search tree ?
+2
+3
+4
+6
+
+POTD-122 SOLUTION:
+
+Answer : 3
+Explanation :
+The height of a BST is the number of edges in the longest path from the root to a leaf.
+
+After inserting 10, 1, 3, 5, 15, 12, 16, the BST structure is:
+
+       10
+      /   \
+     1     15
+      \    /  \
+       3  12   16
+        \
+         5
+
+The longest path is 10 → 1 → 3 → 5, which has 3 edges.
+
+Hence, the height of the BST is 3.
+
+
+

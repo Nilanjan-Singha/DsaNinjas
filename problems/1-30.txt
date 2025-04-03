@@ -1,0 +1,607 @@
+*POTD 1: Employee Satisfaction Analysis*
+
+A company conducted an employee satisfaction survey where employees rated their satisfaction from 1 to 10. The company wants to analyze the data to understand if there's a *consecutive streak of high satisfaction* (ratings above 7). Your task is to find the longest streak of consecutive ratings greater than 7.
+
+Write a function `longestSatisfactionStreak(satisfaction)` that takes an array of integers, `satisfaction`, where each integer represents an employee's rating.
+
+*Input:*  
+- An array `satisfaction` of integers (1 ≤ satisfaction[i] ≤ 10), where `1 <= len(satisfaction) <= 1000`.
+
+*Output:*  
+- Return the length of the longest consecutive streak of ratings greater than 7.
+
+*Example:*
+
+Input: satisfaction = [4, 8, 9, 10, 3, 7, 8, 8]
+Output: 3
+
+Explanation: The longest streak of ratings greater than 7 is [8, 9, 10] with a length of 3.
+
+*Test Cases:*
+
+1. *Test Case 1:*
+   - Input: `[5, 6, 8, 9, 10, 6, 7, 8]`
+   - Output: `3`
+   - *Explanation:* Longest streak is `[8, 9, 10]`.
+
+2. *Test Case 2:*
+   - Input: `[1, 5, 6, 3, 2, 4, 7]`
+   - Output: `0`
+   - *Explanation:* No rating above 7, so the output is `0`.
+
+3. *Test Case 3:*
+   - Input: `[8, 8, 8, 9, 10, 8, 8]`
+   - Output: `7`
+   - *Explanation:* The entire array is a streak of ratings above 7, so the output is `7`.
+
+
+*Intuition*
+
+The task is to find the *longest consecutive streak* of elements in an array where each element is greater than 7. We solve this by keeping a running count (`streak`) of consecutive high ratings and comparing it to the longest streak seen so far (`longestStreak`). If we encounter a rating that is 7 or below, we reset the `streak`.
+
+*Approach*
+
+1. Initialize two counters: `streak` (for the current streak of high ratings) and `longestStreak` (for the longest streak recorded).
+2. Loop through each rating in the array:
+   - If the rating is above 7, increment `streak` and update `longestStreak` if `streak` exceeds it.
+   - If the rating is 7 or below, reset `streak` to 0.
+3. After the loop, `longestStreak` will hold the longest streak of ratings above 7.
+
+*Code Implementation*
+
+👉*C Function*
+
+```
+int longestSatisfactionStreak(int satisfaction[], int size) {
+    int streak = 0;
+    int longestStreak = 0;
+    
+    for(int i = 0; i < size; i++) {
+        if(satisfaction[i] > 7) {
+            streak++;
+            if(streak > longestStreak) {
+                longestStreak = streak;
+            }
+        } else {
+            streak = 0;
+        }
+    }
+    return longestStreak;
+}
+```
+
+👉*C++ Function*
+
+```
+int longestSatisfactionStreak(vector<int> satisfaction) {
+    int streak = 0;
+    int longestStreak = 0;
+    
+    for(int i = 0; i < satisfaction.size(); i++) {
+        if(satisfaction[i] > 7) {
+            streak++;
+            longestStreak = max(longestStreak, streak);
+        } else {
+            streak = 0;
+        }
+    }
+    return longestStreak;
+}
+```
+
+👉*Java Function*
+
+```
+public static int longestSatisfactionStreak(int[] satisfaction) {
+    int streak = 0;
+    int longestStreak = 0;
+    
+    for (int rating : satisfaction) {
+        if (rating > 7) {
+            streak++;
+            longestStreak = Math.max(longestStreak, streak);
+        } else {
+            streak = 0;
+        }
+    }
+    return longestStreak;
+}
+```
+*Time and Space Complexity*
+
+- *Time Complexity:* O(n), where n is the length of the `satisfaction` array. We traverse the array only once, making it linear.
+- *Space Complexity:* O(1), as we use only a fixed amount of extra space for `streak` and `longestStreak`.
+
+
+
+
+POTD-2: What will the output of the below code?
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int arr[2] = { 1, 2 };
+    cout << 0 [arr] << ", " << 1 [arr] << endl;
+    return 0;
+}
+
+Yes, there is a syntax error in the code.
+
+The syntax 0 [arr] and 1 [arr] are not valid in C++. The correct syntax to access array elements is arr[0] and arr[1].
+
+The code should be:
+
+include <iostream>
+using namespace std;
+int main() {
+    int arr[2] = {1, 2};
+    cout << arr[0] << "," << arr[1] << end1;
+    return 0;
+}
+
+
+This will output: 1,2
+
+The original code will result in a compilation error, as the syntax is not valid.
+
+[8:52 pm, 28/10/2024] +91 87598 33524: Yes, exactly! In C and C++, arr[i] is equivalent to i[arr]. This is due to pointer arithmetic and the way array indexing works. Both expressions actually translate to *(arr + i) under the hood, meaning they both access the i-th element of arr.
+
+This is a lesser-used trick but is completely valid in C and C++!
+[8:54 pm, 28/10/2024] +91 87598 33524: Although, In Java, arr[i] is the only way to access the i-th element of an array. Java does not allow i[arr], as it lacks the pointer-based flexibility that C and C++ have. 
+
+In Java, array access is strictly arrayName[index], so using i[arrayName] would throw a syntax error.
+
+
+
+
+POTD-4: Which of the following programming languages is dynamically typed?
+C
+C++
+Java
+Python
+
+No, the presence or absence of a semicolon doesn’t determine whether a language is statically or dynamically typed.
+But as you mentioned, In a dynamically typed language, a variable’s type is determined at runtime, whereas in a statically typed language, it is determined at compile time.
+Statically typed language:(C, C++, Java)
+
+int number = 10;
+number = "Hello"; // Error: invalid conversion from ‘const char*’ to ‘int’
+
+Dynamically typed language:(Python, JS)
+
+number = 10  # No need to declare type explicitly
+number = "Hello"  # Reassigning with a different type is allowed
+
+
+
+POTD-5:
+Given an unsorted array arr of n unique positive integers, which of the following methods will correctly & most efficiently find the k-th smallest element in arr?
+Sort arr in ascending order and return arr[k-1].
+Use a max-heap to keep the k smallest elements and return the root of the heap.
+Use a min-heap to extract the smallest element k times.
+Use the Quickselect algorithm
+
+HINT: 
+A. Sort arr in ascending order and return arr[k-1]. Time Complexity:  O(nlogn)
+
+B. Use a max-heap to keep the k smallest elements. Time Complexity: O(nlogk)
+
+C. Use a min-heap to extract the smallest element k times. Time Complexity: O(klogn)
+
+D. Use the Quickselect algorithm, which has an average Time Complexity of 
+O(n)
+
+
+What is the average time complexity for searching an element in a well-implemented hash table?
+O(n)
+O(log n)
+O(1)
+O(n^2)
+
+Search Algorithms and Their Average Time Complexities
+
+1. Linear Search:
+   - Time Complexity: O(n)
+
+2. Binary Search: 
+   - Time Complexity: O(log n)
+
+3. Hash Table Search: 
+   - Time Complexity: O(1)
+
+4. Binary Search Tree (BST) Search:  
+   - Time Complexity: O(log n)
+
+5. Balanced Search Trees (AVL/Red-Black Trees):
+   - Time Complexity: O(log n)
+
+6. Depth-First Search (DFS) & Breadth-First Search (BFS):  
+   - Time Complexity: O(V + E) (where V is the number of vertices and E is the number of edges in the graph)
+
+7. Interpolation Search:
+   - Time Complexity: O(log log n)
+
+8. Exponential Search:  
+   - Time Complexity: O(log n)
+
+POTD 7
+Which of the following is a necessary condition for applying binary search on an array?
+The array must contain only positive integers
+The array must be sorted
+The array must contain distinct elements
+The array must have an even number of elements
+
+An array must be sorted before performing a binary search. Binary search follows the divide-and-conquer principle, repeatedly dividing the search range in half. Only when the array is sorted,  each comparison with the middle element can effectively determine whether the target lies in the left or right half, allowing the algorithm to eliminate half of the elements at each step.
+
+POTD-8:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    cout << "NooBuild!"[0] <<" "<<"NooBuild!"[8] ;
+    return 0;
+}
+
+What will be the output of the above code?
+NooBuild! NooBuild!
+N!
+N !
+Error
+
+Indeed The output will be: N !
+Explanation:
+- "Noobuild!"[0] accesses the first character of the string "Noobuild!", which is 'N'.
+- "Noobuild!"[8] accesses the ninth character (index 8) of the string, which is '!'.
+
+POTD-9:
+Which of the following points is/are true about Linked List data structure when it is compared with array?
+Arrays have better cache locality that can make them better in terms of performance.
+It is easy to insert and delete elements in Linked List.
+Random access is not allowed in a typical implementation of Linked Lists.
+The size of array has to be pre-decided, linked lists can change their size any time.
+
+POTD-9 Solution:
+
+Answer: All of them are correct 😄.
+Explanation:
+1. Arrays have better cache locality than linked lists because their elements are stored in contiguous memory locations.
+2. Insertion and deletion are easier with linked lists since there’s no need to shift other elements.
+3. Arrays allow random access through indexing, whereas linked lists do not support direct access to elements.
+4. Static arrays have a fixed size, while linked lists can dynamically grow or shrink, reducing memory wastage and the risk of overflow.
+
+POTD-10:
+
+Which of the following data structures is used in recursion?
+Array
+String
+Linked list
+Stack
+
+POTD-10 Solution:
+Answer: Stack
+Explanation: Recursion uses the stack data structure to store function calls. The stack follows the LIFO principle, which makes it ideal for storing function calls because the last function call gets executed first.
+
+
+POTD-11:
+What is a complete binary tree?
+A tree where each node has exactly zero or two children.
+A binary tree that's completely filled except for the bottom level, which is filled right to left.
+A binary tree that's completely filled except for the bottom level, which is filled left to right.
+A tree In which all nodes have a maximum degree of 2.
+
+POTD-11 Solution:
+
+Ans:  c) A binary tree that's completely filled, except for the bottom level, which is filled left to right.
+
+Explanation:
+👉 Tree: A non-linear data structure that represents a hierarchical model of nodes connected by edges.
+
+👉 Binary Tree: A tree in which each node has a maximum of two children.
+
+👉 Full Binary Tree: A binary tree where each node has either zero or exactly two children.
+
+👉 Complete binary tree:  A binary tree, which is completely filled, with the possible exception of the bottom level. The bottom level may or may not be completely filled & if it is partially filled then the filling is done strictly from left to right.
+
+
+
+POTD-12:
+
+Consider the following line of code: 
+int arr[5];
+
+What is the total size of arr on a 16-bit system?
+20 Bytes
+10 Bytes
+5 Bytes
+None of the above
+
+
+POTD-12 Solution:
+
+Answer: 10 Bytes
+Explanation: On 16-bit system an integer data takes up 2 bytes. So, an array of 5 integers will take up 5*2 = 10 bytes.
+
+
+In C++, which of the following best describes the string type?
+Primitive data type
+Array of characters
+Class-based object
+None of the above
+
+Answer: C) Class-based object.
+Explanation: In C++, the string type is part of the Standard Template Library (STL) and is implemented as a class (std::string) . That's why we can call different methods like size() , substr() , .find() etc. on a string.
+
+👉 C: Strings are arrays of characters with a null terminator ( '\0' ) at the end.
+👉 C++: string is an object of the std::string class, part of the Standard Template Library (STL).
+👉 Java: String is an object of the String class defined in java.lang.String package .
+
+
+POTD-14:
+
+Polynomial addition can be implemented using which of the following datastructure?
+Tree
+Stack
+Linked list
+Binary search tree
+
+POTD-14 Solution:
+
+Answer: Linked lists 
+Explanation: Linked lists can represent polynomials efficiently because each node can store a term's coefficient and exponent. This structure allows traversal, term-by-term addition, and insertion of terms at any position.
+
+
+POTD-15:
+
+The best data structure to check whether an arithmetic expression has balanced parenthesis is a
+Queue
+Stack
+Tree
+Heap
+
+POTD-15 Solution:
+
+Answer: Stack
+Explanation: When checking for balanced parentheses, the stack data structure efficiently allows us to:
+* Push each opening parenthesis onto the stack.
+* Pop a matching opening parenthesis from the stack when encountering a closing parenthesis.
+If, at the end of the expression, the stack is empty and all characters were matched correctly, the parentheses are balanced. This Last-In-First-Out (LIFO) behavior of stacks is ideal for this type of matching problem.
+
+
+POTD-16:
+
+What will be the inorder traversal of the above binary tree?
+4, 6, 2, 5, 1, 7, 3, 8
+1, 2, 4, 6, 5, 3, 7, 8
+6, 4, 5, 2, 7, 8, 3, 1
+1, 2, 3, 4, 5, 7, 8, 6
+
+POTD-16 Solution:
+
+Answer: 4, 6, 2, 5, 1, 7, 3, 8
+Explanation: In an inorder traversal, we visit nodes in the following order:
+1. Left subtree
+2. Root node
+3. Right subtree
+
+1. Start at node 1:
+   - Go to the left subtree (2).
+2. At node 2:
+   - Go to the left subtree (4).
+3. At node 4:
+   - Visit 4.
+   - Go to the right subtree (6) and visit it.
+4. Return to 2 and visit it.
+   - Go to the right subtree (5) and visit it.
+5. Return to the root 1 and visit it.
+   - Go to the right subtree (3).
+6. At node 3:
+   - Go to the left subtree (7) and visit it.
+   - Return to 3 and visit it.
+   - Go to the right subtree (8) and visit it.
+
+So, the corrected inorder traversal of the tree is:
+4, 6, 2, 5, 1, 7, 3, 8
+
+
+POTD-17:
+What is the time complexity for inserting/deleting at the beginning of the array?
+O(1)
+O(log n)
+O(n^2)
+O(n)
+
+OTD-17 Solution:
+
+Answer: O(n)
+Explanation: The insertion or deletion of an element at the beginning of an array has a time complexity of O(n).
+In the case of insertion, all other elements must be shifted one position to the right to create space for the new element.
+Similarly, for deletion, all other elements must be shifted one position to the left.
+
+
+POTD-18:
+What is the time complexity of reversing a string?
+O(1)
+O(log n)
+O(n)
+O(n logn)
+
+POTD-18 Solution:
+
+Answer: O(n)
+Explanation: Reversing a string using swapping requires n/2 iterations, as it swaps characters from both ends toward the center. In contrast, the copy method processes all n characters to create a new reversed string. Both approaches have a time complexity of O(n) , but swapping is more efficient due to fewer iterations and operations.
+
+
+POTD-19:
+What is the time complexity of reversing a linked list?
+O(1)
+O(log n)
+O(n^2)
+None of the above
+
+POTD-19 Solution:
+
+> You all answered that right. 👏👏
+
+Answer: None of the above
+Explanation: To reverse a linked list, we need to traverse the whole linked list and update the pointers, which will take O(n) time.
+
+POTD-20:
+What data structure is used to implement recursion internally?
+Queue
+Stack
+Linked List
+Array
+
+Answer: Stack
+Explanation: Recursion uses the call stack to store information about function calls, including local variables and return addresses.
+
+
+POTD-21:
+What is the height of a complete binary tree with nodes?
+O(log n)
+O(n)
+O(n log n)
+O(1)
+
+POTD-21 Solution:
+
+Answer: O(log n)
+Explanation: The height of a complete binary tree with n nodes is [ log₂(n) ],
+which is O(log n).
+
+
+POTD-22:
+Which of the following is the disadvantage of the array?
+Stack and Queue data structures can be implemented through an array.
+Index of the first element in an array can be negative.
+Wastage of memory if the elements inserted in an array are lesser than the allocated size.
+Elements can be accessed sequentially.
+
+Answer: Wastage of memory if the elements inserted in an array are lesser than the allocated size.
+Explanation: For example, if we have an array of size 10 elements and we have inserted only 5 elements in an array then there is a wastage of 5 memory blocks which cannot be utilized by another variable.
+
+
+POTD-23:
+What will be the output of the above code snippet?
+5
+15
+9
+6
+
+Answer: 9
+Explanation: The given code calculates the sum of elements at even indices (0, 2, 4) in the array a initialized as {1, 2, 3, 4, 5}. Using a for loop, it iterates through the array, and the if (i % 2 == 0) condition ensures that only elements at even indices are added to sum. Specifically, the elements a[0] = 1, a[2] = 3, and a[4] = 5 are added, resulting in a total sum of 1 + 3 + 5 = 9. Thus, the output of the program is 9.
+
+
+POTD-24:
+Which data structure do we use for testing a palindrome ?
+Heap
+Tree
+Priority Queue
+Stack
+
+Answer: Stack
+Explanation: Stacks are used for palindrome checking because they reverse the order of characters due to their LIFO nature. By pushing characters onto the stack and popping them, you can compare the original string with its reverse efficiently
+
+
+POTD-25:
+Which of the following points is/are not true about Linked List data structure when it is compared with an array?
+Random access is not allowed in a typical implementation of Linked Lists
+Access of elements in linked list takes less time than compared to arrays
+Arrays have better cache locality that can make them better in terms of performance
+It is easy to insert and delete elements in Linked List
+
+POTD-25 Solution:
+
+Answer: Access of elements in linked list takes less time than compared to arrays
+Explanation: To access an element in a linked list, we need to traverse every element until we reach the desired element. This will take more time than arrays as arrays provide random access to its elements.
+
+
+POTD-26:
+What will be the best sorting algorithm, given that the array elements are small (<= 1e6)?
+Bubble Sort
+Merge Sort
+Counting Sort
+Heap Sort
+
+Answer: Counting Sort
+Explanation: Counting sort sorts an array in O(n) time complexity, taking up an extra space complexity of O(max(a[i])) .
+
+POTD-27:
+
+What is the term used to describe the situation when two different keys produce the same hash value in a hash table?
+Clustering
+Collation
+Collision
+Chaining
+
+POTD-27 Solution:
+
+Answer: Collision
+Explanation: Well, there is no explanation. It's just a definition; you have to remember it. 😅
+
+Here are the definitions of all the given options:
+A) Clustering:
+Occurs when multiple keys are assigned to adjacent slots in a hash table, often due to poor hash function or collision resolution methods like linear probing.
+
+B) Collation:
+Not directly related to hashing; it refers to arranging data in a specific order, typically for sorting or comparison.
+
+C) Collision:  
+Occurs when two or more distinct keys hash to the same index in a hash table.
+
+D) Chaining:  
+A collision resolution technique where multiple elements hashing to the same index are stored in a linked list or similar data structure at that index.
+
+
+POTD-28:
+
+What is the value of the postfix expression 6 3 2 4 + – *?
+1
+40
+74
+-18
+
+POTD-28 SOLUTION:
+
+Answer: -18
+Explanation: 
+6 3 2 4 + - *   (2 + 4 = 6)
+= 6 3 6 - *     (3 - 6 = -3)     
+= 6 -3 *         (6 * -3 = -18)   
+= -18
+
+POTD-29:
+
+Which data structure is used to perform level-order traversal on a binary tree?
+Stack
+Queue
+Linked list
+Hash table
+
+POTD-29 SOLUTION:
+
+Answer: Queue
+Explanation: Level-order traversal involves visiting nodes level by level, from left to right at each level.
+A queue follows the FIFO (First In, First Out) principle, which helps in processing nodes in the same order they appear at each level.
+
+
+POTD-30:
+
+What is the other name of Dijkstra's algorithm?
+multiple-destination shortest path problem
+multiple-source shortest path problem
+single-source shortest path problem
+single-destination shortest path problem
+
+
+POTD-30 Solution:
+
+Answer: single-source shortest path problem
+Explanation : Dijkstra's algorithm finds the shortest path from a single source vertex to all other vertices in a graph
+
+

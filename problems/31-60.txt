@@ -1,0 +1,598 @@
+POTD-31:
+
+Which algorithm is used to solve the all-pairs shortest path problem?
+Bellman-Ford algorithm
+Dijkstra's algorithm
+Floyd-Warshall algorithm
+Kruskal's algorithm
+
+POTD-31 Solution:
+
+Answer: Floyd-Warshall algorithm
+Explanation: The Floyd-Warshall algorithm is specifically designed to solve the all-pairs shortest path problem by finding shortest paths between every pair of vertices in a weighted graph.
+
+
+POTD-32:
+
+What is the average case time complexity for finding the height of the binary tree?
+O(loglogn)
+O(nlogn)
+O(n)
+O(log n)
+
+POTD-32 solution:
+
+Answer: O(n)
+Explanation: Function for finding the height of a binary tree:
+int findHeight(TreeNode* root) {
+    if (!root) return -1; // Base case: empty tree
+    return max(findHeight(root->left), findHeight(root->right)) + 1;
+}
+In the video, you can see that the process involves visiting every node. Therefore, in any case—whether best, worst, or average—the time complexity will be O(n).
+
+
+POTD-33:
+
+What is the recurrence relation for the worst case of QuickSort algorithm?
+T(n) = T(n-2) + O(n)
+T(n) = 2T(n/2) + O(n)
+T(n) = T(n-1) + O(n)
+T(n) = T(n/10) + T(9n/10) + O(n)
+
+POTD-33 Solution:
+
+Answer: T(n) = T(n-1) + O(n)
+Explanation: The worst case of Quick Sort occurs when the pivot is the smallest or largest element, leading to highly unbalanced partitions.
+
+In the pictorial solution, the pivot is chosen to be the smallest element. As a result, all elements less than or equal to the pivot are placed in the left subarray, and the elements greater than the pivot are placed in the right subarray. Thus, the partitioning results in a left subarray of size 1 and a right subarray of size (n-1). That's why the recurrence relation becomes: T(n) = T(n-1) + O(n)
+
+POTD-34:
+What is the time complexity of the above  recursive function ?
+O(log n)
+O(n)
+O(n log n)
+O(n²)
+
+POTD-34 Solution:
+
+Answer: O(n)
+Explanation: The recursive function reduces the input size by half at each step and makes two recursive calls. At each level of recursion, the number of calls doubles while the input size decreases. The recurrence T(n) = 2T(n/2) + O(1) shows that the total work at each level is proportional to n. Adding up the work across all levels gives the overall time complexity as O(n).
+
+POTD-35
+Which of the following can be done with LinkedList?
+Implementation of Stack and Queues
+Implementation of Binary trees
+Implementation of Data structures that can stimulate dynamic arrays
+All of the above
+
+POTD-35 Solution:
+
+Answer: All of the above
+Explanation: 
+1. LinkedLists can implement stacks and queues using head or tail operations.  
+2. Binary trees use nodes with references to left and right children, which can be implemented using a LinkedList structure.  
+3. LinkedLists simulate dynamic arrays by allowing dynamic memory allocation.
+
+POTD-36:
+You are given an array of integers, and your task is to find the length of the smallest subarray that, when sorted, makes the entire array sorted.
+
+Example:
+
+Input: [1, 3, 2, 4, 5]
+Output: 2
+Explanation: Sorting the subarray [3, 2] makes the entire array sorted.
+Which of the following approaches can solve the problem in O(n) time?
+Sort the array and compare it with the original array to find mismatched elements.
+Use two pointers to find the boundaries of the unsorted subarray.
+Use a stack to find the boundaries of the unsorted subarray.
+Use nested loops to compare all subarray combinations.
+
+POTD-36 Solution:
+
+Answer: Use two pointers to find the boundaries of the unsorted subarray.
+Use a stack to find the boundaries of the unsorted subarray.
+
+
+Explanation: The problem can be efficiently solved using either the two-pointer approach or a stack, both of which operate in  time. The two-pointer method works by identifying the boundaries of the unsorted subarray in a single pass from both ends. Similarly, using a stack helps efficiently track indices of out-of-order elements to determine the boundaries. These approaches are optimal compared to sorting or nested loops, which are slower and do not meet the  constraint.
+
+
+POTD-37:
+What is the time complexity of the following algorithm?
+
+for (i = 0; i < n; i++) {
+    for (j = 0; j < n; j++) {
+        print("*");
+    }
+}
+
+O(n)
+O(n²)
+O(n log n)
+O(1)
+
+Answer: O(n²)
+Explanation: The algorithm contains two nested loops, each running n times. The inner loop executes once for every iteration of the outer loop, resulting in a total of n x n =n² iterations. Since the operation inside the loop is O(1), the overall time complexity is O(n²).
+
+
+POTD-38
+
+What is the time complexity of the code snippet?
+
+void example(int n) {
+    for (int i = n; i > 1; i /= 2) { 
+        for (int j = 0; j < i; j++) { 
+            cout << i << " " << j << endl;
+        }
+    }
+}
+O(n)
+O(n log n)
+O(log n)
+O(n²)
+None of the above
+
+Answer: O(n)
+Explanation: The outer loop starts with i = n and halves i in each iteration   (i /= 2), making it logarithmic in nature. It runs approximately log₂(n) times.The inner loop runs from j = 0 to j < i. For each value of i, the inner loop executes i times.The total number of iterations is the sum of the inner loop's executions over all outer loop iterations: 
+n+(n/2)+(n/4).....=2n.
+This is a geometric series summing to O(n).Therefore, despite the logarithmic outer loop, the overall complexity is dominated by the linear sum of the inner loop's iterations, resulting in O(n).
+
+POTD-39:
+How many times will the inner loop run in the following nested loop ?
+
+int count = 0;
+for (int i = 0; i < 4; i++) {
+    for (int j = i; j < 4; j++) {
+        count++;
+    }
+}
+cout << count; 
+6
+4
+16
+10
+
+Answer: 10
+Explanation: The given code has nested loops, where the outer loop runs with i from 0 to 3. For each value of i, the inner loop runs from j = i to j = 3. When i = 0, the inner loop executes 4 times (j = 0, 1, 2, 3), when i = 1, it runs 3 times (j = 1, 2, 3), for i = 2, it runs 2 times (j = 2, 3), and for i = 3, it runs once (j = 3). Thus, the total number of iterations of the inner loop is 4 + 3 + 2 + 1 = 10. Therefore, the value of count after the loop completes will be 10, and the correct answer is 10.
+
+
+POTD-40:
+
+In which of the following scenarios does Dijkstra's algorithm fail to produce the correct shortest path?
+When the graph is undirected and has non-negative weights.
+When the graph contains negative edge weights.
+When the graph is directed and has non-negative weights.
+The graph is a tree.
+
+POTD-40 Solution:
+
+Answer: When the graph contains negative edge weights.
+Explanation: Dijkstra's algorithm fails when the graph contains negative edge weights because it assumes that once the shortest distance to a node is found, it cannot be updated. Negative weights can later lead to shorter paths, making this assumption invalid.
+
+41-45 consist of pics
+
+
+POTD-46:
+
+Consider a circular queue of size n implemented using an array. Which of the following is not true about the circular queue?
+The front pointer points to the position of the front element in the queue.
+The rear pointer points to the last occupied position in the queue.
+The queue becomes full when the rear pointer is one position behind the front pointer.
+The circular queue avoids the problem of unused space that occurs in a regular array-based queue
+
+Answer of POTD :
+B) The rear pointer points to the last occupied position in the queue.
+
+ Explanation:
+In  circular queue we maintain two pointers: front and rear.
+
+- Front pointer: Points to the front element of the queue.
+- Rear pointer: Points to the position where the next element will be inserted. It does not point to the last occupied position in the queue.
+
+The key concept in a circular queue is that when the rear pointer reaches the end of the array, it wraps around to the beginning (index 0), making efficient use of the array space
+
+
+[12:34 pm, 15/12/2024] +91 81708 39799: Question
+
+Consider a circular linked list implementation of a queue, where each node represents an element in the queue. The queue has the following operations:
+
+- enqueue(x): adds element x to the end of the queue
+- dequeue(): removes the front element from the queue
+- isEmpty(): checks if the queue is empty
+
+The head pointer points to node 1, and the tail pointer points to node 4.
+
+Which of the following statements is true after performing the following operations:
+
+1. enqueue(5)
+2. dequeue()
+3. enqueue(6)
+
+A) The head pointer points to node 2, and the tail pointer points to node 6.
+
+B) The head pointer points to node 2, and the tail pointer points to node 5.
+
+C) The head pointer points to node 3, and the tail pointer points to node 6.
+
+D) The head pointer points t…
+[12:34 pm, 15/12/2024] +91 81708 39799: Options
+A
+N
+C
+D
+
+POTD-48:
+
+Consider the following mystery function:
+
+mystery(n) {
+    if (n == 0 || n == 1)
+        return 1;
+    return mystery(n - 1) + mystery(n - 2);
+}
+
+What does the mystery function compute?
+The n-th Fibonacci number (where Fib(0) = 0, Fib(1) = 1, Fib(2) = 1 etc.)
+Number of ways to climb n stairs starting from the 0th stair, if you can take 1 or 2 steps at a time
+The factorial of n.
+The sum of integers from 1 to n.
+
+POTD-48 SOLUTION:
+
+Answer: Number of ways to climb n stairs starting from the 0th stair, if you can take 1 or 2 steps at a time.
+
+Explanation:
+The mystery function does not compute the Fibonacci series because mystery(0) = 1, whereas for Fibonacci, F(0) should be 0.
+
+Now, consider the second option, which relates to the climbStairs problem.
+
+If n == 0, it means you want to remain on the 0th stair starting from the 0th stair. There is only one way to achieve this, which is to do nothing.
+
+If n == 1, it means you want to reach the 1st stair starting from the 0th stair. Again, there is only one way to do this, which is by taking a single step.
+
+Thus, in both cases (n == 0 and n == 1), the function correctly returns 1.
+
+Therefore, the correct answer is the second option.
+
+
+POTD-49:
+
+Which of the following task(s) can be performed using in-order traversal of a binary search tree (BST)?
+Sorting the elements in ascending order
+Finding the height of the tree
+Balancing the tree
+Counting the number of nodes
+
+POTD-49 Solution:
+
+Answer: Sorting the elements in ascending order & counting the number of nodes.
+
+Explanation: 
+1. In-order traversal of a BST provides the elements in ascending order. Remember it.
+2. Finding the height of BST(or any tree) requires a different method, DFS.
+3. We cannot directly balance a BST using in-order traversal. However, in-order traversal gives elements in sorted order, which can be used to reconstruct the tree into a balanced one.
+4. 'Counting the nodes', can be done using any traversal method, whether it is in-order, pre-order, post-order, or level-order
+
+POTD-50:
+
+You are given an array `arr` of size `n` where every element is guaranteed to appear twice except for one element that appears only once. Which of the following  algorithms finds this single element in `O(n)` time and `O(1)` space?
+Sort the array and compare adjacent elements to find the single element.
+Use a HashMap to count the frequency of each element and return the one with frequency 1.
+Traverse the array and compute the XOR of all elements. The result will be the single element.
+Use two nested loops to compare every element with all others and find the unique one.
+
+Follow up of POTD-50:
+
+Provide a dry run for the following test-case.
+
+I/P : arr = [2, 4, 1, 2, 1]
+O/P: 4
+
+[10:58 pm, 18/12/2024] +91 87598 33524: POTD-50 Solution:
+
+Answer: Traverse the array and compute the XOR of all elements. The result will be the single element.
+
+Explanation:
+Option 1⃣: Sorting works but takes O(n log n) time, which does not meet the O(n) time requirement.
+
+Option 2⃣: Using a HashMap works in O(n) time but requires O(n) space, which violates the O(1) space constraint.
+
+Option 3⃣: XOR operation is the correct answer because XOR satisfies the properties:
+x ⊕ x = 0 (a number XORed with itself is 0).
+x ⊕ 0 = x (a number XORed with 0 is itself).
+Traversing the array and XORing all elements leaves only the unique element since all duplicates cancel out.
+
+Option 4⃣: Using two nested loops has a time complexity of O(n^2), which is inefficient and does not meet the O(n) time requirement.
+[10:58 pm, 18/12/2024] +91 87598 33524: Follow-up solution:
+
+(((2^4)^1)^2)^1
+=2^4^1^2^1
+= (2^2) ^ (1^1) ^ 4
+= 0 ^ 0 ^ 4
+= 0 ^ 4
+= 4
+
+POTD-51:
+
+You are given the head of a singly linked list. Which of the following algorithms can detect whether the linked list contains a cycle in the most efficient way?
+Use a HashSet to track visited nodes.
+Use two pointers, one moving 1 step and the other 2 steps at a time.
+Reverse the list and check for head repetition.
+Count visited nodes and check if it exceeds total nodes.
+
+POTD-51 solution:
+
+Answer: Use two pointers, one moving 1 step and the other 2 steps at a time.
+Explanation: 
+👉 Option 1: Using a HashSet requires additional O(n) space to store visited nodes, which violates the O(1) space constraint.  
+ 
+👉 Option 2: The two-pointer approach (also known as Floyd’s Cycle Detection Algorithm) is optimal. It detects a cycle in O(n) time and O(1) space. The slow pointer moves one step at a time, while the fast pointer moves two steps. If there is a cycle, the two pointers will eventually meet.  
+ 
+👉 Option 3: Reversing the list modifies the list structure and does not reliably detect cycles.  
+ 
+👉 Option 4: Counting the number of nodes visited is inefficient and does not provide an accurate way to detect cycles without knowing the total number of nodes, which is not always available.
+
+You are given the root of a binary tree. You need to find the maximum width of the tree (the maximum number of nodes at any level). Which of the following algorithms can solve the problem most efficiently?
+Perform a pre-order traversal and store the count of nodes at each level using a HashMap.
+Perform a in-order traversal and store the count of nodes at each level using a HashMap.
+Perform a post-order traversal and store the count of nodes at each level using a HashMap.
+Perform a level-order traversal using a queue and track the width at each level
+
+POTD-52 Solution:
+
+Answer: Perform a level-order traversal using a queue and track the width at each level.
+
+Explanation: 
+
+👉The first three options use a DFS approach, which contradicts our goal of finding the maximum width (or breadth). While DFS can be used, it requires additional logic, such as a HashMap, to track the level of each node. This results in a time complexity of O(n) and a space complexity of O(n) + O(n) (due to the HashMap and recursion stack).
+
+👉 In contrast, level-order traversal follows a BFS approach, which directly aligns with the requirement and allows us to find the maximum width in O(n) time and O(n) space.
+
+
+POTD-53:
+
+int fib(int n) {
+    if (n <= 1) {
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+
+What is the time complexity of the above function ?
+O(n)
+O(n^2)
+O(2^n)
+O(logn)
+
+POTD-53 Solution:
+
+ Answer : O(2^n)
+ Explanation :
+The time complexity of the recursive Fibonacci function is O(2^n) because the function makes two recursive calls for each input n (fibonacci(n-1) and fibonacci(n-2)), creating a binary tree of calls. Each level doubles the number of calls, resulting in an exponential number of computations.
+
+
+54 problem wrong
+
+POTD-55
+Given the following C++ function, what will be the output for the input {3, 2, 3, 2, 2, 2,1}?
+1
+2
+3
+Error
+
+Answer : 2
+Explanation :The given function implements the Boyer-Moore Voting Algorithm, which finds the majority element in an array. It iterates through the array, maintaining a candidate element and a count to track its majority status. When the count reaches zero, it updates the candidate. For the input {3, 2, 3, 2, 2, 2, 1}, the function will return 2 as the majority element, since it appears more times than any other number.
+
+
+POTD-56:
+What will be the output of the program when the input is {2, 1, 3}?
+0
+-1
+1
+-4
+
+POTD-56 Solution:
+Answer: 0
+Explanation: The function first computes a sum by iterating through pairs of elements and adding (arr[i] + arr[j]) % 3, resulting in sum = 3. Then, it calculates the result by iteratively multiplying (sum - arr[i]) % 5. For the input {2, 1, 3}, the final result after all calculations is 0.
+
+upto 61 pics
+
+POTD 62 Consider a hash table with a capacity of 10. If the table uses chaining for collision resolution and the load factor becomes greater than 1, which of the following is the most likely impact on the performance of the hash table?
+A) Access time remains constant due to the efficient use of linked lists.
+B) The time complexity for searching, insertion, and deletion remains O(1).
+C)The time complexity for search and insertion increases.
+D) The hash table will automatically resize and rehash the elements to maintain O(1) complexity.
+
+ans -> C) The time complexity for search and insertion increases.
+
+As the load factor exceeds 1 in a hash table with chaining, the linked lists grow longer, causing search, insertion, and deletion operations to increase in time complexity from O(1) to O(n) in the worst case.
+
+63, 64,65 pics
+
+Which of the following data structures allows efficient insertion and deletion of elements at both ends?
+A) Stack
+B) Queue
+C) Linked List
+D) Deque
+
+Ans is D)deque 
+Double-Ended Queue allows efficient insertion and deletion of elements at both ends
+
+What is the time complexity of accessing an element by index in an Array?
+A) O(1)
+B) O(n)
+C) O(log n)
+D) O(n^2)
+
+Ans is option A O(1)
+
+Which data structure follows the Last-In-First-Out (LIFO) principle?
+
+A) Queue
+B) Stack
+C) Tree
+D) Graph
+
+Which option do you choose?
+A
+B
+C
+D
+
+ans stack
+
+POTN 
+What is the order in which elements are removed from a queue?
+
+A) Last-In-First-Out (LIFO)
+B) First-In-First-Out (FIFO)
+C) Random Order
+D) Ascending Order
+
+Which option do you choose?
+A
+B
+C
+D
+
+ans B
+
+POTN 70
+
+What is the root of a tree?
+
+A) A node with no children
+B) A node with only one child
+C) The topmost node in the tree
+D) The bottommost node in the tree
+
+Which option do you choose?
+A
+B
+C
+D
+
+ans C
+
+
+POTN
+What is the type of graph where there is at most one edge between any two vertices?
+
+A) Weighted Graph
+B) Directed Graph
+C) Simple Graph
+D) Cyclic Graph
+
+Choose your answer!
+A
+B
+C
+D
+ans C
+
+POTN 72
+Question 
+In a graph, what is the term for a vertex with no edges incident on it?
+
+A) Isolated vertex
+B) Adjacent vertex
+C) Incident vertex
+D) Pendant vertex
+
+Choose your answers!
+A
+B
+C
+D
+
+ans A
+
+POTN 73
+What is the number of iterations (or recursive calls) required to sort an array of 8 elements using QuickSort with the "Lomuto" partition scheme, assuming the pivot is always the last element of the array?
+
+A) 3
+B) 5
+C) 7
+D) 8
+
+Choose your answer!
+A
+B
+C
+D
+
+ans C
+
+Which of the following methods can be used to multiply two numbers without using the ( *)operator in programming?
+A) Repeated addition
+B) Bitwise operations (Russian Peasant Multiplication)
+C) Recursion (repeated addition)
+D) All of the above
+ans D
+
+
+POTN 74
+What will be the output of the following recursive function?
+int recursiveFunction(int n) {
+    return recursiveFunction(n-1);
+}
+Assuming the function is called with a positive integer n, which of the following is true?
+A) The function will return 0
+B) The function will return the original value of n
+C) The function will run indefinitely and cause a stack overflow
+D) The function will throw a runtime error due to negative values of n
+
+ans C
+
+POTN 75
+Consider a queue with the following elements:
+
+A, B, C, D, E
+
+What will be the result of performing the following operations:
+
+1. Dequeue()
+2. Enqueue(F)
+3. Dequeue()
+
+A) A, C, F
+B) B, D, F
+C) C, D, E, F
+D) B, C, E, F
+
+Choose your answer!
+A
+B
+C
+D
+
+ans C
+
+POTN 76
+1. Radix Sort is a type of:
+a) Comparison-based sorting algorithm
+b) Non-comparison-based sorting algorithm
+c) Hybrid sorting algorithm
+d) Recursive sorting algorithm
+A
+B
+C
+D
+ans b
+
+Which of the following cannot be the balance factor of a node in an AVL tree?
+A) -1
+B) 0
+C) 1
+D) 2
+ans D
+
+78,79 pics
+
+POTN 80
+In a bakery, customers arrive one by one to buy pastries. The bakery uses a queue to handle customer orders. The customers are served in the order they arrive (first-come, first-served). Which of the following statements correctly describes the situation?
+A) The first customer will be served last.
+B) Customers are served in the order they arrive, without any changes.
+C) The queue handles customers in a last-in, first-out order.
+D) The queue serves customers randomly without any specific order.
+
+
