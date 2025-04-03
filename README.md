@@ -10,4 +10,8 @@ This is a small project of mine that lists down all the questions (MCQ format) f
 
 ## Screenshots
 
-![Screenshot](https://imgur.com/a/rktehvp)
+![Screenshot](screenshot.png)
+
+PS: The latest questions will be added at the end of each week. Also, sorry for the messy code. 
+
+ 🍀 by Nilanjan 😄
